@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>⚠️ CSRF Attack Simulation</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+  <div class="container attack-page">
+    <h2>⚠️ Simulated Attacker's Page</h2>
+
+    <!-- <p>This page pretends to be an innocent external website visited by the victim.</p>
+    <p>It secretly contains a form that tries to POST to <code>/logout</code> on your app — <strong>without a CSRF
+        token</strong>.</p>
+
+    <div class="info-box danger-box">
+      <strong>What happens when you click the button below?</strong>
+      <ul>
+        <li>Without CSRF protection → the logout request would succeed(attack works!)</li>
+        <li>With CSRF protection → the server rejects it with a 403 error</li>
+      </ul>
+    </div> -->
+
+    <!-- 
+      ATTACK FORM: No _csrf token included.
+      If the victim is logged in and submits this, the browser sends the session cookie.
+      But without the CSRF token, csurf will block it.
+    -->
+    <form method="POST" action="/logout">
+      <!-- Deliberately NO _csrf field — this is the attack! -->
+      <button type="submit" class="btn danger">Launch CSRF Attack (Force Logout)</button>
+    </form>
+
+    <hr>
+    <a href="/" class="btn secondary">← Back to Home</a>
+  </div>
+</body>
+
+</html>

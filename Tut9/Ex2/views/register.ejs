@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Register</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Register</h2>
+
+    <% if (error) { %>
+      <p class="error"><%= error %></p>
+    <% } %>
+
+    <form method="POST" action="/auth/register">
+      <!-- CSRF Token: hidden field embeds the server-generated token -->
+      <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
+      <label>Name:</label>
+      <input type="text" name="name" required placeholder="Your name" />
+
+      <label>Email:</label>
+      <input type="email" name="email" required placeholder="you@example.com" />
+
+      <label>Password:</label>
+      <input type="password" name="password" required placeholder="Password" />
+
+      <button type="submit" class="btn">Register</button>
+    </form>
+
+    <p>Already have an account? <a href="/auth/login">Login</a></p>
+  </div>
+</body>
+</html>

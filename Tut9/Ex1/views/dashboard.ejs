@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Dashboard</h2>
+    <p>Welcome back, <strong><%= user.name %></strong>!</p>
+    <p>Email: <%= user.email %></p>
+
+    <div class="info-box">
+      <p>✅ You are protected by a CSRF token. Your logout below is safe — it includes a valid <code>_csrf</code> token.</p>
+    </div>
+
+    <!-- Logout is a POST form with CSRF token — safe -->
+    <form method="POST" action="/logout">
+      <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+      <button type="submit" class="btn danger">Logout</button>
+    </form>
+
+    <hr>
+    <p class="danger-zone">⚠️ Curious about attacks? <a href="/attack">See the CSRF attack page</a></p>
+  </div>
+</body>
+</html>
