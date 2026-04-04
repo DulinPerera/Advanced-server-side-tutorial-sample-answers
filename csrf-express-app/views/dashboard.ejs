@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <h2>Dashboard</h2>
+  <p>You are logged in as <strong><%= user.name %></strong> (<%= user.email %>)</p>
+
+  <form method="POST" action="/auth/logout">
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+    <button type="submit">Logout</button>
+  </form>
+
+  <a href="/">Home</a>
+</body>
+</html>

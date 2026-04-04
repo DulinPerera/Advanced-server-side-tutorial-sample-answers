@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Home</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <h1>Express Session + CSRF Demo</h1>
+
+  <% if (user) { %>
+    <p>Welcome, <%= user.name %></p>
+    <a href="/auth/dashboard">Go to Dashboard</a>
+  <% } else { %>
+    <a href="/auth/register">Register</a>
+    <a href="/auth/login">Login</a>
+  <% } %>
+
+  <br><br>
+  <a href="/attack">Go to CSRF Attack Demo</a>
+</body>
+</html>
