@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Alumni Register</title>
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    body { font-family: Arial, sans-serif; background: #f4f7f6; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+    .form-container { background: #fff; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); width: 100%; max-width: 400px; }
+    input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; }
+    button { width: 100%; padding: 10px; background: #0056b3; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
+    button:hover { background: #004494; }
+    .message { color: red; margin-bottom: 15px; }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Alumni Registration</h2>
+    <% if (hasMessages) { %>
+      <div class="message">
+        <% messages.forEach(function(msg){ %>
+          <p><%= msg %></p>
+        <% }) %>
+      </div>
+    <% } %>
+    <form action="/register" method="POST">
+      <input type="text" name="full_name" placeholder="Full Name" required>
+      <input type="email" name="email" placeholder="Email (@my.westminster.ac.uk)" required pattern=".*@my\.westminster\.ac\.uk$">
+      <input type="password" name="password" placeholder="Password" required>
+      <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+      <button type="submit">Register</button>
+    </form>
+    <p style="text-align:center; margin-top:15px; font-size: 14px;">Already have an account? <a href="/login">Login</a></p>
+  </div>
+</body>
+</html>
